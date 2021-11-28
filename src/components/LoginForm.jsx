@@ -3,7 +3,7 @@ import { Form, Input, Button, Checkbox } from 'antd';
 import axios from 'axios';
 const LoginForm = (props) => {
   const onFinish = (values) => {
-    console.log('Success:', values);
+    // console.log('Success:', values);
     axios.post("https://reqres.in/api/login", {
       "email":values.email,
       "password":values.password
@@ -11,7 +11,7 @@ const LoginForm = (props) => {
       alert("Logged in !! "+JSON.stringify(res.data));
       console.log(res.data);
       localStorage.setItem("token",res.data.token);
-    }).catch(err => err.respose && alert("Error : "+err.response.data.error))
+    }).catch(err => err.response && alert("Error : "+err.response.data.error))
   };
 
   const onFinishFailed = (errorInfo) => {
